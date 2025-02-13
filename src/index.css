@@ -13,12 +13,45 @@ body {
 
 }
 
+:root{
+    --background-green: #062d14;
+    --green-50: hsl(141deg 75% 90%);
+    --green-100: hsl(141deg 75% 85%);
+    --green-200: hsl(141deg 75% 70%);
+    --green-300: hsl(141deg 75% 60%);
+    --green-400: hsl(141deg 75% 50%);
+    --green-500: hsl(141deg 75% 45%);
+    --green-600: hsl(141deg 75% 35%);
+    --green-700: hsl(141deg 75% 25%);
+    --green-800: hsl(141deg 75% 15%);
+    --green-900: hsl(141deg 75% 10%);
+    --green-950: hsl(141deg 75% 5%);
+    --green-1000: hsl(141deg 75% 2.5%);
+    --green-1000-25: hsl(141deg 75% 2.5% / 25%);
+
+    --transition-duration: 200ms;
+    --transition-function: ease;
+
+    --border-radius-s: 5px;
+    --border-radius-m: 10px;
+    --border-radius-l: 15px;
+}
+
+#root{
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
 /* ROOT FONT-SIZE */
 
 html {
     font-size: 62.5%;
+    
 }
+
+
 
 /* Header */
 
@@ -31,7 +64,109 @@ html {
 
 }
 
-.header a {
+.header__link{
+    color: white;
     text-decoration: none;
-    color: inherit;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+/* MainContainer */
+
+.MainContainer{
+    flex: 1;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 0 1rem 1rem 2rem;
+    background-image: linear-gradient(to bottom, var(--background-green), transparent);
+}
+
+.main__texts{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+}
+
+.main__link{
+    color: white;
+    text-decoration: none;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.item-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.item-list__container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(172px, 1fr));
+}
+
+/* Single Item */
+
+.single-item{
+    padding: 25px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: var(--border-radius-l);
+    align-items: center;
+    transition: background-color var(--transition-function)
+      var(--transition-duration);
+}
+
+.single-item:hover .single-item__icon{
+    opacity: 100%;
+    transform: translateY(0);
+}
+
+.single-item__div-image-bottom{
+    position: relative;
+}
+
+.single-item__icon{
+    color: var(--green-400);
+    position: absolute;
+    font-size: 50px;
+    right: 7.5px;
+    bottom: 7.5px;
+    transform: translateY(100%);
+    opacity: 0;
+    transition-timing-function: var(--transition-function);
+    transition-duration: var(--transition-duration);
+    transition-property: opacity, transform
+    
+}
+
+.single-item__div-image {
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+.single-item_texts{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.single-item__title{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.single-item__type{
+    font-size: 1.3rem;
 }

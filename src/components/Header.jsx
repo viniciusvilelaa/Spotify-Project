@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className='header'>
         <img src={logoSpotify} alt="Logo Spotify" />
-        <a href="#"><h1>Spotify</h1></a>
+        <a  className='header__link' href="#"><h1>Spotify</h1></a>
     </div>
   )
 }
