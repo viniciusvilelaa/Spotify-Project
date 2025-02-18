@@ -12,7 +12,7 @@
 body {
     line-height: 1.6;
     font-family: Arial, sans-serif;
-    background-color: black;
+    background-color: var(--green-1000);
     color: white;
 
 }
@@ -60,6 +60,10 @@ html {
 img{
     display: block;
     max-width: 100%;
+}
+a{
+    text-decoration: none;
+    color: white;
 }
 
 
@@ -144,6 +148,7 @@ img{
 .single-item:hover {
     background-color: var(--green-900);
     text-decoration: none;
+    
 }
 
 .single-item:hover .single-item__icon {
@@ -164,7 +169,7 @@ img{
     color: var(--green-400);
     position: absolute;
     font-size: 50px;
-    right: 1rem;
+    right:  1rem;
     bottom: .5rem;
     transform: translateY(100%);
     opacity: 0;
@@ -175,6 +180,7 @@ img{
 
 .single-item__div-image {
     width: 140px;
+    height: 140px;
     overflow: hidden;
     display: flex;
     align-items: center;
