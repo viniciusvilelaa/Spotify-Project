@@ -265,9 +265,11 @@ a{
 }
 
 /* Song List */
-.song-list{
-    display: flex;
-    flex-direction: column;
+.song-list__see-more{
+    font-size: 1.5rem;
+    &:hover{
+        text-decoration: underline;
+    }
 }
 
 /* Song Item */
@@ -277,6 +279,8 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: background-color var(--transition-function)
+    var(--transition-duration);
     &:hover{
         background-color: var(--green-800);
     }
@@ -289,6 +293,10 @@ a{
 
 .song-item__texts{
     font-size: 1.5rem;
+
+    &:hover{
+        text-decoration: underline;
+    }
 }
 
 .song-item__image{
