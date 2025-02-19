@@ -60,6 +60,7 @@ html {
 img{
     display: block;
     max-width: 100%;
+    
 }
 a{
     text-decoration: none;
@@ -168,7 +169,7 @@ a{
 .single-item__icon {
     color: var(--green-400);
     position: absolute;
-    font-size: 50px;
+    font-size: 5rem;
     right:  1rem;
     bottom: .5rem;
     transform: translateY(100%);
@@ -210,4 +211,88 @@ a{
     -webkit-box-orient: vertical;
     box-orient: vertical;
     overflow: hidden;
+}
+
+/* Artist */
+
+.artist{
+    border-radius: var(--border-radius-l);
+    margin: 0 1rem 1rem;
+    overflow: hidden;
+    
+}
+
+.artist__header{
+    --_shade: hsl(0deg 0% 0% / 25%);
+    display: flex;
+    align-items: end;
+    height: 40svh;
+    padding: 2.5rem;
+    background-position-y: 20%;
+    background-size: cover;
+
+}
+
+.artist__title{
+    font-size: 6rem;
+}
+
+
+
+.artist__body{
+    padding: 3.9rem 2.5rem;
+    background-image: linear-gradient(to bottom,
+            var(--green-900),
+            var(--green-1000));
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Artist Icon */
+
+.single-item__icon--artist{
+    position: fixed;
+    opacity: 1;
+    font-size: 4rem;
+    bottom: 6rem;
+    right: 2.5rem;
+    
+}
+
+.song-list__title{
+    font-size: 2rem;
+}
+
+/* Song List */
+.song-list{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Song Item */
+.song-item{
+    border-radius: var(--border-radius-m);
+    padding: 1rem 2rem 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:hover{
+        background-color: var(--green-800);
+    }
+}
+
+.song-item__left{
+    display: flex;
+    align-items: center;
+}
+
+.song-item__texts{
+    font-size: 1.5rem;
+}
+
+.song-item__image{
+    margin: 0 .5rem 0 1rem ;
+    border-radius: var(--border-radius-s);
+    width: 4rem;
 }
