@@ -7,8 +7,8 @@ import { BrowserRouter, Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/home'
 import Artists from './pages/Artists/Artists'
 import Artist from './pages/Artists/Artist'
-import Songs from './pages/Songs'
-import Song from './pages/Song'
+import Songs from './pages/Songs/Songs'
+import Song from './pages/Songs/Song'
 
 const App = () => {
   return (

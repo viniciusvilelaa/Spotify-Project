@@ -2,8 +2,6 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import Song from '../Song';
-import SongItem from './SongItem';
 import SongList from './SongList';
 
 const Artist = () => {
