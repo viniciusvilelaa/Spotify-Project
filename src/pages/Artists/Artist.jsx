@@ -1,21 +1,28 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import SongList from './SongList';
+import { artistArray } from '../../assets/database/artists';
+import { songsArray } from '../../assets/database/songs';
 
-const Artist = () => {
+const Artist = ({}) => {
+  const { id }= useParams();
+
+  let artist = artistArray.find(artist => artist.id == id)
+  
   return (
     <div className='artist'>
-      <div className="artist__header" style={{backgroundImage: "linear-gradient(to bottom, var(--_shade), var(--_shade)),url(https://i.scdn.co/image/ab67618600001016b37fbcbd078cb239588df5d9)"}}>
+      <div className="artist__header" style={{backgroundImage: `linear-gradient(to bottom, var(--_shade), var(--_shade)),url(${artist.banner})`}}>
         
-        <h2 className='artist__title'>Henrique e Juliano</h2>
+        <h2 className='artist__title'>{artist.name}</h2>
       </div>
       
       <div className="artist__body">
         <h2>Populares</h2>
         
-        <SongList></SongList>
+        
+        <SongList artistName={artist.name}></SongList>
 
       </div>
 

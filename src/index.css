@@ -272,7 +272,7 @@ a {
 
 /* Song Item */
 .song-item {
-    border-radius: var(--border-radius-m);
+    
     padding: 1rem 2rem 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -388,6 +388,7 @@ a {
     background-color: #666;
     border-radius: var(--border-radius-s);
     overflow: hidden;
+    
 }
 
 .player__progress{
@@ -397,4 +398,17 @@ a {
     gap: 1rem;
     justify-content: space-between;
     max-width: 60rem;
+}
+
+.player__time{
+    width: 4.5rem;
+    text-align: center;
+}
+
+.player__bar-progress{
+    --_progress: 0;
+    height: 100%;
+    background-color: white;
+    width: var(--_progress);
+    transition: width var(--transition-function) var(--transition-duration);
 }
