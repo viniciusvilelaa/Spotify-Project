@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const SongItem = ({name, image, duration, id, index}) => {
     return (
         
-        <Link to={`/song/:${id}`}  className='song-item'>
+        <Link to={`/song/${id}`}  className='song-item'>
             <div className='song-item__left'>
                 <p className='song-item__texts'>{index}</p>
                 <img className='song-item__image' src={image} alt={`Capa da musica ${name}`} />
