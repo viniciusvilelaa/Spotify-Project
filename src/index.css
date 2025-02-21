@@ -264,7 +264,7 @@ a {
 /* Song List */
 .song-list__see-more {
     font-size: 1.5rem;
-
+    cursor: pointer;
     &:hover {
         text-decoration: underline;
     }

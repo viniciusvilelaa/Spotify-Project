@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay, faForwardStep, faBackwardStep } from '@fortawesome/free-solid-svg-icons';
 import { Link} from 'react-router-dom';
 
-const Player = () => {
+const Player = ({duration}) => {
 
 
     
@@ -26,7 +26,7 @@ const Player = () => {
                 <div className='player__bar'>
                     <div className="player__bar-progress"></div>
                 </div>
-                <p className='player__time'>02:30</p>
+                <p className='player__time'>{duration}</p>
             </div>
 
         </div>
