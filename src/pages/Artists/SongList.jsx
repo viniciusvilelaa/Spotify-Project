@@ -2,14 +2,22 @@ import React from 'react'
 import SongItem from './SongItem'
 import { songsArray } from '../../assets/database/songs';
 
-const SongList = ({artistName}) => {
+const SongList = ({ arraySongsFiltred }) => {
     let items = 5;
+    console.log(arraySongsFiltred)
     
+    let seeMoreElemente = document.getElementsByClassName("song-list__see-more")
+    
+    const seeMoreFunction = () => {
+        items === 5 ? items = 10 : items = 5
+        console.log(items)
+    }
+
     return (
         <div className='song-list'>
-            {songsArray.filter(song => song.artist == artistName).slice(0,items).map((currentValue, index) => <SongItem {...currentValue} index={index+1} key={`${artistName} - ${index}`} ></SongItem>)}
-            
-            <p className='song-list__see-more'>Ver mais</p>
+            {arraySongsFiltred.filter((currentValue, index) => index < items).map((currentValue, index) => <SongItem {...currentValue} index={index+1} key={`${currentValue} - ${index}`} ></SongItem>)}
+            {console.log(items)}
+            <p onClick={seeMoreFunction} className='song-list__see-more'>Ver mais</p>
             
         </div>
     )

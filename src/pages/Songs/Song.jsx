@@ -2,11 +2,12 @@ import React from 'react'
 import Player from '../../components/Player'
 import { Link, useParams } from 'react-router-dom'
 import { songsArray } from '../../assets/database/songs'
+import { artistArray } from '../../assets/database/artists'
 
 const Song = () => {
   const { id } = useParams();
   const songP = songsArray.find(song => song.id == id)
-  
+  const artistObj = artistArray.find(artist => artist.name == songP.artist)
   
   return (
     <div className='song'>
@@ -18,8 +19,8 @@ const Song = () => {
       </div>
 
       <div className='song__bar'>
-        <Link to="/artist/id">
-          <img className='song__artist-image' width={75} height={75} src="https://i.scdn.co/image/ab67616d00001e025bb6668a856035550a66fc31" alt="" />
+        <Link to={`/artist/${artistObj.id}`}>
+          <img className='song__artist-image' width={75} height={75} src={artistObj.image} alt="" />
         </Link>
           
           

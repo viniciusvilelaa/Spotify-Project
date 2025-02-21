@@ -11,8 +11,8 @@ const Artist = ({}) => {
 
   const artistObj = artistArray.find(artist => artist.id == id)
   
-  const songsFiltred = songsArray.filter(song => song.artist == artistObj.name)
-  const randomSong = songsFiltred[Math.floor(Math.random()* songsFiltred.length)]
+  const arraySongsFiltred = songsArray.filter(song => song.artist == artistObj.name)
+  const randomSong = arraySongsFiltred[Math.floor(Math.random()* arraySongsFiltred.length)]
   
 
   return (
@@ -26,7 +26,7 @@ const Artist = ({}) => {
         <h2>Populares</h2>
         
         
-        <SongList artistName={artistObj.name}></SongList>
+        <SongList arraySongsFiltred={arraySongsFiltred} ></SongList>
 
       </div>
       
