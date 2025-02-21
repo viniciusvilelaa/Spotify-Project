@@ -1,12 +1,12 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay, faForwardStep, faBackwardStep } from '@fortawesome/free-solid-svg-icons';
-import { Link, useParams } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 const Player = () => {
-    
-    
 
+
+    
     return (
         <div className='player'>
             <div className='player__controllers'>
