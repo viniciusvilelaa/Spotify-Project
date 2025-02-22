@@ -24,7 +24,7 @@ const Song = () => {
         </Link>
           
           
-          <Player duration={duration}></Player>
+          <Player duration={duration} artistName={artistObj.name}></Player>
           
           <div className='song_infos'>
             <p className='song__name'>{name}</p>
