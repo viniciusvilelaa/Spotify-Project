@@ -8,37 +8,35 @@ const Player = ({ duration, artistName }) => {
     const id = useParams().id;
     const arraySongsFiltred = songsArray.filter(song => song.artist == artistName)
     const currentIndex = arraySongsFiltred.findIndex(song => song.id == Number(id))
-
-    const backwardStep = () => {
-        if (currentIndex > 0) {
-            return `/song/${arraySongsFiltred[currentIndex - 1].id}`
-        }
-
-        return `/song/${id}`;
-    }
-
-    const forwardStep = () => {
-        if ( currentIndex < arraySongsFiltred.length - 1){
-            return `/song/${arraySongsFiltred[currentIndex + 1].id}`
-        }
-
-        return `/song/${id}`
-    }
-    
     
 
+    const getRandomMusic = () => {
+        let randomIndex;
     
+        // Garante que o índice não seja 0 e seja diferente do atual
+        do {
+            randomIndex = Math.floor(Math.random() * arraySongsFiltred.length);
+        } while (randomIndex === currentIndex || randomIndex === 0);
+    
+        return `/song/${arraySongsFiltred[randomIndex].id}`;
+    };
+
+    
+
+
+
+
 
     return (
         <div className='player'>
             <div className='player__controllers'>
-                <Link to={backwardStep()}>
+                <Link to={getRandomMusic()}>
                     <FontAwesomeIcon className='player__icon' icon={faBackwardStep} />
                 </Link>
 
                 <FontAwesomeIcon className='player__icon player__icon--play' icon={faCirclePlay} />
 
-                <Link to={forwardStep()}>
+                <Link to={getRandomMusic()}>
                     <FontAwesomeIcon className='player__icon' icon={faForwardStep} />
                 </Link>
             </div>
