@@ -3,18 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import { Link, useParams } from 'react-router-dom';
 import SongList from './SongList';
-import { artistArray } from '../../assets/database/artists';
-import { songsArray } from '../../assets/database/songs';
+import { artistsArray, artistsIndexedById } from '../../assets/database/artists';
+import { songsArray, songsIndexedByArtist } from '../../assets/database/songs';
 
 const Artist = ({}) => {
   const { id }= useParams();
 
-  const {name , banner } = artistArray.find(artist => artist.id == id)
-  
-  const arraySongsFiltred = songsArray.filter(song => song.artist == name)
-  const randomSong = arraySongsFiltred[Math.floor(Math.random()* arraySongsFiltred.length)]
-  
-
+  const {name , banner } = artistsIndexedById[id]
+  const songsArray = songsIndexedByArtist[name];
+  const randomSongIndex = Math.floor(Math.random() * songsArray.length);
+ 
   return (
     <div className='artist'>
       <div className="artist__header" style={{backgroundImage: `linear-gradient(to bottom, var(--_shade), var(--_shade)),url(${banner})`}}>
@@ -26,11 +24,11 @@ const Artist = ({}) => {
         <h2>Populares</h2>
         
         
-        <SongList arraySongsFiltred={arraySongsFiltred} ></SongList>
+        <SongList arraySongsFiltred={songsArray} ></SongList>
 
       </div>
       
-      <Link to={`/song/${randomSong.id}`}>
+      <Link to={`/song/${songsArray[randomSongIndex]._id}`}>
         <FontAwesomeIcon className='single-item__icon single-item__icon--artist' icon={faCirclePlay} />
       </Link>
     </div>

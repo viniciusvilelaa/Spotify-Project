@@ -1,13 +1,13 @@
 import React from 'react'
 import Player from '../../components/Player'
 import { Link, useParams } from 'react-router-dom'
-import { songsArray } from '../../assets/database/songs'
-import { artistArray } from '../../assets/database/artists'
+import { songsIndexedById } from '../../assets/database/songs'
+import { artistsArray, artistsIndexedByName } from '../../assets/database/artists'
 
 const Song = () => {
   const songId = useParams().id;
-  const {artist, image, name, duration} = songsArray.find(song => song.id == songId)
-  const artistObj = artistArray.find(currentValue => currentValue.name == artist)
+  const {artist, image, name, duration} = songsIndexedById[songId]
+  const artistObj = artistsIndexedByName[artist]
   
   return (
     <div className='song'>
@@ -19,12 +19,12 @@ const Song = () => {
       </div>
 
       <div className='song__bar'>
-        <Link to={`/artist/${artistObj.id}`}>
+        <Link to={`/artist/${artistObj._id}`}>
           <img className='song__artist-image' width={75} height={75} src={artistObj.image} alt={`Imagem do artista ${artist}`} />
         </Link>
           
           
-          <Player duration={duration} artistName={artistObj.name}></Player>
+          <Player duration={duration} artistName={artist}></Player>
           
           <div className='song_infos'>
             <p className='song__name'>{name}</p>
