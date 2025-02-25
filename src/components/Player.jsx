@@ -1,14 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useRef } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay, faForwardStep, faBackwardStep } from '@fortawesome/free-solid-svg-icons';
-import { Link, useParams } from 'react-router-dom';
-import { songsArray, songsIndexedByArtist, songsIndexedById } from '../assets/database/songs';
+import { Link } from 'react-router-dom';
+import { songsArray } from '../assets/database/songs';
 
-const Player = ({ duration, artistName }) => {
-    const id = useParams().id;
-    const arraySongsFiltred = songsArray.filter(song => song.artist == artistName)
-    const currentIndex = arraySongsFiltred.findIndex(song => song.id == Number(id))
+const Player = ({ duration, audio }) => {
+    console.log(audio)
+    const audioRef = useRef(null);
+    
+    const [songStatus, setSongStatus] = useState({
+        isPlaying: false,
+        currentTime: 0,
+    });
 
+    const updateStatusSong = (playingStatus, curretTimeStatus) =>{
+        setSongStatus({
+            isPlaying: playingStatus,
+            currentTime: curretTimeStatus
+        })
+        
+            
+    }
+
+    const { isPlaying, currentTime } = songStatus;
+
+
+    const playPauseMusic = () => {
+        isPlaying ? audioRef.current.pause() : audioRef.current.play()
+
+        updateStatusSong(!songStatus.isPlaying, audioRef.current.currentTime)
+
+    }
 
     const getRandomMusic = () => {
         const maxIndex = songsArray.length;
@@ -27,12 +50,13 @@ const Player = ({ duration, artistName }) => {
 
     return (
         <div className='player'>
+            <audio ref={audioRef} src={audio}></audio>
             <div className='player__controllers'>
                 <Link to={getRandomMusic()}>
                     <FontAwesomeIcon className='player__icon' icon={faBackwardStep} />
                 </Link>
 
-                <FontAwesomeIcon className='player__icon player__icon--play' icon={faCirclePlay} />
+                <FontAwesomeIcon className='player__icon player__icon--play' icon={faCirclePlay} onClick={playPauseMusic} />
 
                 <Link to={getRandomMusic()}>
                     <FontAwesomeIcon className='player__icon' icon={faForwardStep} />

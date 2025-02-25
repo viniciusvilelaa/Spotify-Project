@@ -6,7 +6,7 @@ import { artistsArray, artistsIndexedByName } from '../../assets/database/artist
 
 const Song = () => {
   const songId = useParams().id;
-  const {artist, image, name, duration} = songsIndexedById[songId]
+  const {artist, image, name, duration, audio} = songsIndexedById[songId]
   const artistObj = artistsIndexedByName[artist]
   
   return (
@@ -24,7 +24,7 @@ const Song = () => {
         </Link>
           
           
-          <Player duration={duration} artistName={artist}></Player>
+          <Player duration={duration} artistName={artist} audio={audio}></Player>
           
           <div className='song_infos'>
             <p className='song__name'>{name}</p>
