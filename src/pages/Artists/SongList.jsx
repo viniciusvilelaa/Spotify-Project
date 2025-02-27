@@ -5,7 +5,7 @@ const SongList = ({ arraySongsFiltred }) => {
     let [items, setItems] = useState(5);
 
     const seeMoreFunction = () => {
-        items === 5 ? setItems(10) : setItems(5)
+        setItems(10)
         
     }
 

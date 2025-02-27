@@ -450,8 +450,8 @@ a {
         grid-template-columns: auto 2fr 3fr;
     }
 
-    .song__info {
-        grid-column: 2;
+    .song__infos {
+        grid-column: 2 !important;
         grid-row: 1;
         justify-self: start;
     }
@@ -469,11 +469,12 @@ a {
         height: 50px;
     }
 
-    .song__info,
+    .song__infos,
     .song__name {
         font-size: 13px;
     }
 }
+
 
 /* Player */
 .player {
